@@ -1,0 +1,12 @@
+.section {
+    padding: .5rem 1rem;
+}
+
+.section h2 {
+    margin-bottom: 1rem;
+}
+
+.color {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+}

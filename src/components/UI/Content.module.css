@@ -1,0 +1,6 @@
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid var(--cor-detalhe);
+    border-radius: 5px;
+}

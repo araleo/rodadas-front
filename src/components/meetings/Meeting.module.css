@@ -1,0 +1,16 @@
+.meeting {
+    margin-bottom: 1rem;
+    border: .5px solid gray;
+    border-radius: .4rem;
+    padding: .5rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    cursor: pointer;
+}
+
+.meeting-title {
+    margin-bottom: .5rem;
+}
+
+.meeting-date {
+    text-align: end;
+}

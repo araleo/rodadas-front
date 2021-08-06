@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+import About from "./components/about/About";
+import Header from "./components/Header";
+import LastMeetings from "./components/meetings/LastMeetings";
+import NextMeeting from "./components/meetings/NextMeeting";
+import Content from "./components/UI/Content";
+import MeetingModal from "./components/UI/MeetingModal";
+
+const App = () => {
+
+  const [detail, setDetail] = useState(false);
+  const [meeting, setMeeting] = useState(null);
+
+  const openDetailsHandler = () => {
+    setDetail(true);
+  };
+
+  const closeDetailsHandler = () => {
+    setDetail(false);
+  };
+
+  const loadModalDataHandler = (meetingObj) => {
+    setMeeting(meetingObj);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Content>
+      {detail && <MeetingModal onConfirm={closeDetailsHandler} meeting={meeting} />}
+      <Header />
+      <NextMeeting onClickMeeting={openDetailsHandler} onLoadModal={loadModalDataHandler} />
+      <LastMeetings onClickMeeting={openDetailsHandler} />
+      <About />
+    </Content>
   );
-}
+};
 
 export default App;
