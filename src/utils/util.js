@@ -1,7 +1,7 @@
 const parseMeeting = (meetingObj) => {
 
   const meetingDate = new Date(meetingObj["date"]);
-  const options = { timeStyle: "short" }
+  const options = { dateStyle:"medium", timeStyle: "short" }
   const meetingLocalDate = meetingDate.toLocaleString("pt-BR", options);
 
   return {

@@ -4,8 +4,10 @@ import MeetingsList from "./MeetingsList";
 import useHttp from "../../hooks/use-http";
 
 import { parseMeeting } from "../../utils/util";
+import SectionCard from "../UI/SectionCard";
 
-const API_LAST_MEETINGS_URL = "http://127.0.0.1:8000/api/ultimas/";
+const API_LAST_MEETINGS_URL =
+  "http://rodadasapi.eba-xxnumxer.us-east-2.elasticbeanstalk.com/api/ultimas/";
 
 const LastMeetings = (props) => {
   const [lastMeetings, setLastMeetings] = useState(null);
@@ -25,21 +27,25 @@ const LastMeetings = (props) => {
 
   let content;
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <p>Carregando...</p>;
   } else if (!isLoading && lastMeetings) {
     content = (
       <MeetingsList
-        title="Últimos encontros"
         meetings={lastMeetings}
         onClickMeeting={props.onClickMeeting}
-        colorBackground="true"
+        setMeeting={props.setMeeting}
       />
     );
   } else if (error) {
     content = <p>Ocorreu um erro!</p>;
   }
 
-  return <div>{content}</div>;
+  return (
+    <SectionCard colorBackground="true">
+      <h2>Últimos encontros</h2>
+      {content}
+    </SectionCard>
+  );
 };
 
 export default LastMeetings;

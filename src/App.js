@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import About from "./components/about/About";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import LastMeetings from "./components/meetings/LastMeetings";
 import NextMeeting from "./components/meetings/NextMeeting";
 import Content from "./components/UI/Content";
@@ -9,27 +9,23 @@ import MeetingModal from "./components/UI/MeetingModal";
 
 const App = () => {
 
-  const [detail, setDetail] = useState(false);
-  const [meeting, setMeeting] = useState(null);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [meeting, setMeeting] = useState();
 
-  const openDetailsHandler = () => {
-    setDetail(true);
+  const openModalHandler = () => {
+    setIsModalShown(true);
   };
 
-  const closeDetailsHandler = () => {
-    setDetail(false);
-  };
-
-  const loadModalDataHandler = (meetingObj) => {
-    setMeeting(meetingObj);
+  const closeModalHandler = () => {
+    setIsModalShown(false);
   };
 
   return (
     <Content>
-      {detail && <MeetingModal onConfirm={closeDetailsHandler} meeting={meeting} />}
+      {isModalShown && <MeetingModal onConfirm={closeModalHandler} meeting={meeting} />}
       <Header />
-      <NextMeeting onClickMeeting={openDetailsHandler} onLoadModal={loadModalDataHandler} />
-      <LastMeetings onClickMeeting={openDetailsHandler} />
+      <NextMeeting onClickMeeting={openModalHandler} setMeeting={setMeeting} />
+      <LastMeetings onClickMeeting={openModalHandler} setMeeting={setMeeting} />
       <About />
     </Content>
   );

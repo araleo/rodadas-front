@@ -10,7 +10,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className={styles.modal} >
+    <div className={styles.modal}>
       <header className={styles.header}>
         <h2>{props.title}</h2>
       </header>
@@ -19,9 +19,21 @@ const ModalOverlay = (props) => {
         <p className={styles.description}>{props.description}</p>
       </div>
       <div className={styles.links}>
-        <a href={props.drive} rel="noreferrer" target="_blank">Material de Estudos</a>
-        <a href={props.slides} rel="noreferrer" target="_blank">Apresentação PPT</a>
-        <a href={props.room} rel="noreferrer" target="_blank">Reunião ou Gravação</a>
+        {props.drive && (
+          <a href={props.drive} rel="noreferrer" target="_blank">
+            Material de Estudos
+          </a>
+        )}
+        {props.presentation && (
+          <a href={props.presentation} rel="noreferrer" target="_blank">
+            Apresentação PPT
+          </a>
+        )}
+        {props.recording && (
+          <a href={props.recording} rel="noreferrer" target="_blank">
+            Gravação
+          </a>
+        )}
       </div>
       <footer className={styles.footer}>
         <Button onClick={props.onConfirm}>Fechar</Button>
@@ -44,8 +56,8 @@ const MeetingModal = (props) => {
           description={props.meeting["description"]}
           date={props.meeting["date"]}
           drive={props.meeting["drive"]}
-          slides={props.meeting["slides"]}
-          room={props.meeting["room"]}
+          presentation={props.meeting["presentation"]}
+          recording={props.meeting["recording"]}
           onConfirm={props.onConfirm}
         />,
         document.getElementById("overlay-root")

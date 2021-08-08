@@ -8,7 +8,9 @@ const Header = () => {
         alt="Um muro com a frase Muevete America Latina"
         className={style["header-img"]}
       />
-      <h1 className={style.title}>Rodadas de Conversa América Latina e Século XXI</h1>
+      <h1 className={style.title}>
+        Rodadas de Conversa América Latina e Século XXI
+      </h1>
     </header>
   );
 };

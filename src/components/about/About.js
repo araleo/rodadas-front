@@ -7,7 +7,7 @@ const About = (props) => {
     <SectionCard>
       <h2>Sobre</h2>
       <p className={styles.description}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+        Descrição do grupo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
         ullamcorper aliquet lectus, ac euismod orci pharetra sit amet.
         Vestibulum ut urna auctor, volutpat massa at, lobortis metus. Quisque
         eget odio turpis.
