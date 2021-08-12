@@ -6,8 +6,7 @@ import useHttp from "../../hooks/use-http";
 import { parseMeeting } from "../../utils/util";
 import SectionCard from "../UI/SectionCard";
 
-const API_LAST_MEETINGS_URL =
-  "http://rodadasapi.eba-xxnumxer.us-east-2.elasticbeanstalk.com/api/ultimas/";
+const API_LAST_MEETINGS_URL = "https://api.rodadasamericalatina.com/api/ultimas/";
 
 const LastMeetings = (props) => {
   const [lastMeetings, setLastMeetings] = useState(null);
