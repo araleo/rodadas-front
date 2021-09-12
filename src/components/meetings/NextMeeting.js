@@ -6,7 +6,8 @@ import Meeting from "./Meeting";
 import { parseMeeting } from "../../utils/util";
 import SectionCard from "../UI/SectionCard";
 
-const API_NEXT_MEETING_URL = "https://api.rodadasamericalatina.com/api/proxima/";
+const API_NEXT_MEETING_URL =
+  "https://api.rodadasamericalatina.com/api/proxima/";
 
 const NextMeeting = (props) => {
   const [nextMeeting, setNextMeeting] = useState(null);
@@ -31,6 +32,8 @@ const NextMeeting = (props) => {
         setMeeting={props.setMeeting}
       />
     );
+  } else if (!isLoading && nextMeeting === null) {
+    content = <h3>Nenhum encontro futuro agendado :(</h3>;
   } else if (error) {
     content = <p>Ocorreu um erro!</p>;
   }

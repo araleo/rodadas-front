@@ -1,5 +1,9 @@
 const parseMeeting = (meetingObj) => {
 
+  if (!meetingObj["id"]) {
+    return null;
+  }
+
   const meetingDate = new Date(meetingObj["date"]);
   const options = { dateStyle:"medium", timeStyle: "short" }
   const meetingLocalDate = meetingDate.toLocaleString("pt-BR", options);
