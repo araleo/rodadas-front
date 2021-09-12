@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 
-import useHttp from "../../hooks/use-http";
 import Meeting from "./Meeting";
-
-import { parseMeeting } from "../../utils/util";
 import SectionCard from "../UI/SectionCard";
 
-const API_NEXT_MEETING_URL =
-  "https://api.rodadasamericalatina.com/api/proxima/";
+import useHttp from "../../hooks/use-http";
+import { parseMeeting } from "../../utils/util";
+import { API_NEXT_MEETING_URL } from "../../utils/constants";
 
 const NextMeeting = (props) => {
   const [nextMeeting, setNextMeeting] = useState(null);
